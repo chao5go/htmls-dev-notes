@@ -1,73 +1,101 @@
-# Welcome to your Lovable project
+# HTML技术学习笔记
 
-## Project info
+> 个人技术笔记网页，记录和分享前端开发、HTML/CSS 学习心得及相关技术文档
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## 📖 项目简介
 
-## How can I edit this code?
+这是一个基于 React + TypeScript + Vite 构建的前端技术学习笔记网站，用于记录和分享前端开发过程中的学习心得、技术文档和实践经验。
 
-There are several ways of editing your application.
+## ✨ 特性
 
-**Use Lovable**
+- 📝 笔记管理与展示
+- 🎨 基于 shadcn/ui 的现代化 UI 设计
+- 🌓 支持明暗主题切换
+- 📱 完全响应式设计
+- ⚡ Vite 提供极速的开发体验
+- 🎯 TypeScript 保障代码质量
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+## 🛠️ 技术栈
 
-Changes made via Lovable will be committed automatically to this repo.
+- **框架**: React 18
+- **语言**: TypeScript
+- **构建工具**: Vite
+- **UI 组件**: shadcn/ui
+- **样式**: Tailwind CSS
+- **路由**: React Router
+- **状态管理**: TanStack Query
+- **表单**: React Hook Form + Zod
+- **主题**: next-themes
 
-**Use your preferred IDE**
+## 🚀 快速开始
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### 环境要求
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+- Node.js >= 18
+- npm >= 9
 
-Follow these steps:
+### 安装
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+```bash
+# 克隆仓库
+git clone https://github.com/chao5go/htmls-dev-notes.git
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+# 进入项目目录
+cd htmls-dev-notes
 
-# Step 3: Install the necessary dependencies.
-npm i
+# 安装依赖
+npm install
+```
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+### 开发
+
+```bash
+# 启动开发服务器
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+访问 `http://localhost:5173` 查看项目
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### 构建
 
-**Use GitHub Codespaces**
+```bash
+# 生产环境构建
+npm run build
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+# 预览构建结果
+npm run preview
+```
 
-## What technologies are used for this project?
+## 📁 项目结构
 
-This project is built with:
+```
+htmls-dev-notes/
+├── public/          # 静态资源
+├── src/
+│   ├── components/  # React 组件
+│   ├── pages/       # 页面组件
+│   ├── hooks/       # 自定义 Hooks
+│   ├── lib/         # 工具函数
+│   ├── styles/      # 样式文件
+│   └── main.tsx     # 应用入口
+├── index.html       # HTML 模板
+└── vite.config.ts   # Vite 配置
+```
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## 🎨 图标
 
-## How can I deploy this project?
+项目使用代码风格的图标设计，支持多种尺寸以适配不同设备和场景。
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+图标生成脚本位于 `scripts/` 目录，可以重新生成不同尺寸的图标。
 
-## Can I connect a custom domain to my Lovable project?
+## 📄 许可证
 
-Yes, you can!
+MIT License
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## 👤 作者
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+[chao5go](https://github.com/chao5go)
+
+## 🌐 在线访问
+
+[justhtmls.com](https://www.justhtmls.com)
