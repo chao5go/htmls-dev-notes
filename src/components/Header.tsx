@@ -1,6 +1,7 @@
 import { Code2, ExternalLink, Menu, X } from 'lucide-react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { ThemeToggle } from './ThemeToggle';
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,7 +14,6 @@ export function Header() {
           <Link to="/" className="flex items-center gap-3 group">
             <div className="relative flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 border border-primary/20 group-hover:border-primary/40 transition-colors">
               <Code2 className="h-5 w-5 text-primary" />
-              <div className="absolute inset-0 rounded-lg bg-primary/5 animate-pulse-glow opacity-0 group-hover:opacity-100 transition-opacity" />
             </div>
             <div className="flex flex-col">
               <span className="font-mono text-sm font-semibold text-foreground">
@@ -46,15 +46,19 @@ export function Header() {
               工具集
               <ExternalLink className="h-3 w-3" />
             </a>
+            <ThemeToggle />
           </nav>
 
-          {/* Mobile Menu Button */}
-          <button 
-            className="md:hidden p-2 text-muted-foreground hover:text-foreground"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </button>
+          {/* Mobile Actions */}
+          <div className="flex items-center gap-2 md:hidden">
+            <ThemeToggle />
+            <button 
+              className="p-2 text-muted-foreground hover:text-foreground"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Nav */}
