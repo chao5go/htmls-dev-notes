@@ -1,12 +1,16 @@
 import { Calendar, ChevronRight, Tag } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Note, getCategoryById } from '@/lib/notes';
+import { HighlightText } from './HighlightText';
 
 interface NoteCardProps {
   note: Note;
+  searchQuery?: string;
+  titleIndices?: number[];
+  excerptIndices?: number[];
 }
 
-export function NoteCard({ note }: NoteCardProps) {
+export function NoteCard({ note, searchQuery = '', titleIndices = [], excerptIndices = [] }: NoteCardProps) {
   const category = getCategoryById(note.category);
 
   return (
@@ -24,14 +28,22 @@ export function NoteCard({ note }: NoteCardProps) {
             </span>
           )}
 
-          {/* Title */}
+          {/* Title with highlight */}
           <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors mb-2 line-clamp-2">
-            {note.title}
+            {titleIndices.length > 0 ? (
+              <HighlightText text={note.title} indices={titleIndices} />
+            ) : (
+              note.title
+            )}
           </h3>
 
-          {/* Excerpt */}
+          {/* Excerpt with highlight */}
           <p className="text-sm text-muted-foreground line-clamp-2 mb-4">
-            {note.excerpt}
+            {excerptIndices.length > 0 ? (
+              <HighlightText text={note.excerpt} indices={excerptIndices} />
+            ) : (
+              note.excerpt
+            )}
           </p>
 
           {/* Meta */}
@@ -43,7 +55,16 @@ export function NoteCard({ note }: NoteCardProps) {
             {note.tags.length > 0 && (
               <span className="flex items-center gap-1.5">
                 <Tag className="h-3.5 w-3.5" />
-                {note.tags.slice(0, 2).join(', ')}
+                {note.tags.slice(0, 2).map((tag, i) => (
+                  <span key={tag}>
+                    {searchQuery && tag.toLowerCase().includes(searchQuery.toLowerCase()) ? (
+                      <span className="bg-primary/20 text-primary px-1 rounded">{tag}</span>
+                    ) : (
+                      tag
+                    )}
+                    {i < Math.min(note.tags.length, 2) - 1 && ', '}
+                  </span>
+                ))}
               </span>
             )}
           </div>
